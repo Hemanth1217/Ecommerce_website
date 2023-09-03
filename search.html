@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Search</title>
+</head>
+
+<body>
+    <header>
+        <h1>Word Search on Webpage</h1>
+    </header>
+    <div class="container">
+        <h2>Search</h2>
+        <input type="text" id="searchInput" placeholder="Enter a word to search">
+        <button onclick="searchWord()">Search</button>
+    </div>
+    <div class="search-results" id="searchResults">
+        <!-- Search results will be displayed here -->
+    </div>
+    <div class="content">
+        <!-- Your webpage content goes here -->
+        <p>
+            home page with all the collections
+            <a href="index.html">Home</a>
+            <a href="index.html">men</a>
+            <a href="index.html">women</a>
+            <a href="index.html">kids</a>
+            <a href="index.html">Inners</a>
+            <a href="index.html">Trousers</a>
+        </p>
+    </div>
+    <script>
+        function searchWord() {
+            const searchQuery = document.getElementById('searchInput').value.toLowerCase();
+            const content = document.querySelector('.content');
+            const searchResults = document.getElementById('searchResults');
+            searchResults.innerHTML = '';
+
+            const contentText = content.textContent.toLowerCase();
+
+            if (contentText.includes(searchQuery)) {
+                const resultItem = document.createElement('div');
+                resultItem.innerHTML = `<p>Found the word "${searchQuery}" in the content.</p>`;
+                searchResults.appendChild(resultItem);
+            } else {
+                searchResults.innerHTML = 'Word not found in the content.';
+            }
+        }
+    </script>
+</body>
+
+</html>
